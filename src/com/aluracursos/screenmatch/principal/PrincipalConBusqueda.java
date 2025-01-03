@@ -1,7 +1,10 @@
 package com.aluracursos.screenmatch.principal;
 
 import com.aluracursos.screenmatch.modelos.Titulo;
+import com.aluracursos.screenmatch.modelos.TituloOmbd;
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.net.URI;
@@ -32,9 +35,12 @@ public class PrincipalConBusqueda {
         String json  =  response.body();
         System.out.println(json);
 
-        Gson gson = new Gson();
-        Titulo miTitulo = gson.fromJson(json, Titulo.class );
+        Gson gson =  new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+        TituloOmbd miTituloOmbd = gson.fromJson(json, TituloOmbd.class );
+        System.out.println(miTituloOmbd);
+        Titulo miTitulo = new Titulo(miTituloOmbd);
         System.out.println(miTitulo);
+
 
 
     }

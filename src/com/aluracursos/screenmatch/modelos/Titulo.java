@@ -17,6 +17,13 @@ public class Titulo implements Comparable <Titulo> {
         this.fechaDeLanzamiento = fechaDeLanzamiento;
     }
 
+    public Titulo(TituloOmbd miTituloOmbd) {
+        this.nombre = miTituloOmbd.title();
+        //Integer.valueof permite hacer us caste de string a numero.
+        this.fechaDeLanzamiento =Integer.valueOf(miTituloOmbd.year());
+        this.duracionEnMinutos = Integer.valueOf(miTituloOmbd.runtime().substring(0,2));
+    }
+
     public void setNombre(String nombre) {
             this.nombre = nombre;
         }
@@ -78,6 +85,7 @@ public class Titulo implements Comparable <Titulo> {
     public String toString() {
         return
                 "nombre='" + nombre + '\'' +
-                ", fechaDeLanzamiento=" + fechaDeLanzamiento ;
+                ", fechaDeLanzamiento=" + fechaDeLanzamiento +
+                ", duración : " + duracionEnMinutos ;
     }
 }
