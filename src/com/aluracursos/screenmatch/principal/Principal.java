@@ -2,6 +2,7 @@ package com.aluracursos.screenmatch.principal;
 
 import com.aluracursos.screenmatch.calculos.FiltrosRecomendacion;
 import com.aluracursos.screenmatch.modelos.Episodio;
+
 import com.aluracursos.screenmatch.modelos.Pelicula;
 import com.aluracursos.screenmatch.modelos.Serie;
 
@@ -54,6 +55,8 @@ public class Principal {
         System.out.println("La primera pelicula es:"+ listaDePeliculas.get(0).getNombre());
         System.out.println(listaDePeliculas.toString());
         System.out.println("toString de la pelicula: "+listaDePeliculas.get(0).toString());
+
+
 
 
 

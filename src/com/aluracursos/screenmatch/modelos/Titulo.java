@@ -1,5 +1,6 @@
 package com.aluracursos.screenmatch.modelos;
 
+import com.aluracursos.screenmatch.exception.ErrorEnConversionDeDuracionException;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable <Titulo> {
@@ -21,7 +22,11 @@ public class Titulo implements Comparable <Titulo> {
         this.nombre = miTituloOmbd.title();
         //Integer.valueof permite hacer us caste de string a numero.
         this.fechaDeLanzamiento =Integer.valueOf(miTituloOmbd.year());
-        this.duracionEnMinutos = Integer.valueOf(miTituloOmbd.runtime().substring(0,2));
+        if (miTituloOmbd.runtime().contains("N/A")){
+            throw new ErrorEnConversionDeDuracionException("No pude convertir la duracion"+
+                    "porque contiene  N/A");
+        }
+        this.duracionEnMinutos = Integer.valueOf(miTituloOmbd.runtime().replaceAll("\\D",""));
     }
 
     public void setNombre(String nombre) {
