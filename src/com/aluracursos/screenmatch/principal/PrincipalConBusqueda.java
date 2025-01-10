@@ -58,6 +58,7 @@ public class PrincipalConBusqueda {
 
 
                 TituloOmbd miTituloOmbd = gson.fromJson(json, TituloOmbd.class );
+                System.out.println("Aqui esta el OMD");
                 System.out.println(miTituloOmbd);
 
                 Titulo miTitulo = new Titulo(miTituloOmbd);
